@@ -1,7 +1,7 @@
 const { MongoClient } = require("mongodb");
 
 const mongoUrl =
-  "mongodb+srv://pramodcgwd50:mH5Kc53lwA7yjBQI@ewa.ga9tynk.mongodb.net/repairmate?retryWrites=true&w=majority";
+  "mongodb://root:password@mongodb:27017/repairmate?authSource=admin";
 
 const connectMongo = async () => {
   try {

@@ -5,9 +5,11 @@ from langchain.embeddings import OpenAIEmbeddings
 from dotenv import load_dotenv
 import os
 
-# load_dotenv(".env")
+load_dotenv()
 
-os.environ["OPENAI_API_KEY"] = "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"
+api_key = os.getenv("OPENAI_API_KEY")
+
+os.environ["OPENAI_API_KEY"] = api_key
 
 real_embeddings = OpenAIEmbeddings()
 

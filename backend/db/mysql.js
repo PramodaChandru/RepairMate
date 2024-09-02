@@ -1,8 +1,9 @@
 const { Sequelize } = require("sequelize");
 
-const sequelize = new Sequelize("repairmate", "root", "root@123", {
-  host: "localhost",
+const sequelize = new Sequelize("repairmate", "root", "root", {
+  host: "mysqldb",
   dialect: "mysql",
+  port: 3306,
 });
 
 const synchronizeDatabase = async () => {

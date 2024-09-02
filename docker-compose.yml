@@ -1,0 +1,53 @@
+services:
+  frontend:
+    build:
+      context: ./client
+    ports:
+      - "3000:80"
+    networks:
+      - repairmate_network
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "9000:3000"
+    depends_on:
+      - mongodb
+      - mysqldb
+    networks:
+      - repairmate_network
+
+  mongodb:
+    image: mongo:7.0
+    container_name: mongodb-container
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - repairmate_network
+
+  mysqldb:
+    image: mysql:8.4
+    container_name: mysqldb-container
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: repairmate
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - repairmate_network
+
+volumes:
+  mongo_data:
+  mysql_data:
+
+networks:
+  repairmate_network:
+    driver: bridge

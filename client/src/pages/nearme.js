@@ -150,7 +150,7 @@ const MapWindow = () => {
             {/* <h1>Hello {finalZipCodes.map((place) => place.lat)}</h1> */}
             <GoogleMapReact
               bootstrapURLKeys={{
-                key: "AIzaSyC-n_YHaxbxsghNiqSMKoLxMvdEDVpm6kg",
+                key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
               }}
               defaultCenter={defaultCenter}
               defaultZoom={defaultZoom}

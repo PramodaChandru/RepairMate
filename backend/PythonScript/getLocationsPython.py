@@ -1,7 +1,7 @@
 import googlemaps
 from geopy.geocoders import GoogleV3
 
-api_key = 'AIzaSyC-n_YHaxbxsghNiqSMKoLxMvdEDVpm6kg'
+api_key = process.env.GOOGLE_MAPS_API_KEY
 gmaps = googlemaps.Client(key=api_key)
 
 def get_zip_code_from_lat_lng(latitude, longitude, api_key=api_key):

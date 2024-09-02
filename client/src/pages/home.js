@@ -43,8 +43,22 @@ function HomeScreen() {
       });
   }
 
+  async function getUserInfo() {
+    let userID = localStorage.getItem("userId");
+    axios
+      .get(`http://localhost:9000/api/user/${userID}`)
+      .then(function (response) {
+        console.log(response);
+        setRole(response.data.user.role);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   useEffect(() => {
     getData();
+    getUserInfo();
     getProvidersByOpenAPI();
   }, []);
 
