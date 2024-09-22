@@ -41,7 +41,7 @@ export default function TaskDataPage() {
   async function getProviders() {
     console.log("Test");
     axios
-      .get("http://localhost:9000/api/provider")
+      .get(process.env.REACT_APP_API_URL + "/provider")
       .then(function (response) {
         console.log(response);
         const filteredProviders = response.data.providers.filter(

@@ -13,7 +13,7 @@ function SignupScreen({ changeScreen }) {
     event.preventDefault();
     if (name && email && password) {
       axios
-        .post("http://localhost:9000/api/user/signup", {
+        .post(process.env.REACT_APP_API_URL + "/user/signup", {
           name,
           email,
           password,

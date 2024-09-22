@@ -17,7 +17,7 @@ const getLocationsPython = require("./routes/nearmeRouter");
 
 async function startServer() {
   const app = express();
-  const PORT = 9000;
+  const PORT = 3000;
 
   app.use(cors());
   app.use(express.json());

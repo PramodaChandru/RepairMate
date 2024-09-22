@@ -15,6 +15,7 @@ router.use((req, res, next) => {
 // -----------------GET REQUESTS
 
 const getUser = async (req, res) => {
+  console.log("Received request for users =======> ");
   try {
     const allUsers = await User.findAll();
     if (!allUsers) {
